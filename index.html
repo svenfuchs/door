@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="./styles/styles.css"/>
     <script type="text/javascript" src="./scripts/history-throttled.js" defer></script>
@@ -8,12 +9,14 @@
   </head>
 
   <body>
-    <div id="imgs" class="zoomable">
-      <img src="./img/background.png">
-      <img src="./img/door.png" id="door">
-      <img src="./img/accent.png" id="accent">
-      <img src="./img/windows.png">
-      <img src="./img/plants.png">
+    <div id="vp">
+      <div id="imgs" class="zoomable">
+        <img src="./img/background.png">
+        <img src="./img/door.png" id="door">
+        <img src="./img/accent.png" id="accent">
+        <img src="./img/windows.png">
+        <img src="./img/plants.png">
+      </div>
     </div>
     <div class="ctrls top">
       <div class="ctrl switch">
@@ -21,7 +24,7 @@
            <input type="checkbox" name="accent" id="input-accent">
         </div>
         <div class="label">
-          <label for="input-accent">Show Accent</label>
+          <label for="input-accent">Akzent zeigen</label>
         </div>
       </div>
     </div>
@@ -31,7 +34,7 @@
            <input type="checkbox" name="element" id="element">
         </div>
         <div class="label">
-          <label id="element-label" for="element">Base Color</label>
+          <label id="element-label" for="element">Tür</label>
         </div>
       </div>
       <div class="sliders">
@@ -40,7 +43,7 @@
             <input type="range" min="0" max="360" value="0" class="slider" name="hue">
           </div>
           <div class="label">
-            <label>Hue</label>
+            <label>Ton</label>
           </div>
         </div>
         <div class="ctrl">
@@ -48,7 +51,7 @@
             <input type="range" min="0" max="200" value="100" class="slider" name="sat">
           </div>
           <div class="label">
-            <label>Saturation</label>
+            <label>Satt</label>
           </div>
         </div>
         <div class="ctrl">
@@ -56,7 +59,7 @@
             <input type="range" min="0" max="300" value="100" class="slider" name="lgt">
           </div>
           <div class="label">
-            <label>Lightness</label>
+            <label>Hell</label>
           </div>
         </div>
       </div>

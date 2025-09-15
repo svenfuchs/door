@@ -19,8 +19,6 @@ label {
   display: block;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20pt;
   color: #fff;
 }
 .right {
@@ -34,7 +32,7 @@ label {
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 25px 30px;
+  padding: 25px 0 25px 42px;
 }
 .right .switch .label {
   padding: 3px 0 0 10px;
@@ -45,6 +43,7 @@ label {
   flex-direction: row wrap;
   justify-content: flex-start;
   align-items: stretch;
+  margin: 0 20px 0 20px;
 }
 .right .sliders .ctrl {
   position: relative;
@@ -52,11 +51,11 @@ label {
   flex-direction: column;
 }
 .right .sliders .ctrl .label {
-  width: 100px;
+  width: 80px;
   height: 250px;
 }
 .right .sliders label {
-  margin-top: 70px;
+  margin-top: 60px;
   transform: rotate(90deg);
 }
 .right .sliders .ctrl .input {
@@ -66,13 +65,12 @@ label {
 input[type=range] {
   direction: rtl;
   writing-mode: vertical-lr;
-  height: calc(100% - 280px - 70px);
+  height: calc(100% - 250px);
 }
 .top {
   top: 0;
   left: 0;
-  width: 330px;
-  padding: 25px 0 20px 50px;
+  padding: 25px 60px 20px 50px;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -93,8 +91,6 @@ input[type=range] {
 input[type=checkbox] {
   -webkit-appearance: none;
   position: relative;
-  width: 50px;
-  height: 30px;
   border-radius: 25px;
   background-color: #ccc;
   transition: background .3s;
@@ -120,57 +116,58 @@ input[type=checkbox]:checked::after {
   left: 70%;
 }
 
-input[type="radio"] {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: var(--form-background);
-  margin: 0;
-
-  font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid currentColor;
-  border-radius: 50%;
-  transform: translateY(-0.075em);
-
-  display: grid;
-  place-content: center;
-}
-input[type="radio"]::before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--form-control-color);
-  /* Windows High Contrast Mode */
-  background-color: CanvasText;
-}
-input[type="radio"]:checked::before {
-  transform: scale(1);
-}
-input[type="radio"]:focus {
-  outline: max(2px, 0.15em) solid currentColor;
-  outline-offset: max(2px, 0.15em);
-}
-
 #imgs {
   position: relative;
   margin: auto;
-  width: 1400px;
-  height: 1080px;
+  width: 100%;
 }
 img {
   display: block;
   position: absolute;
-  top: 0;
   width: 100%;
-  height: 100%;
 }
 .zoomable {
   transform-origin: center center;
   transition: transform 0.05s ease-out;
   touch-action: none;
+}
+
+label {
+  font-weight: bold;
+  font-size: 20pt;
+}
+input[type=checkbox] {
+  width: 50px;
+  height: 30px;
+}
+input[type=checkbox]::after {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+@media screen and (width < 1000px) {
+  label {
+    font-weight: bold;
+    font-size: 12pt;
+  }
+  input[type=checkbox] {
+    width: 37px;
+    height: 20px;
+  }
+  .top {
+    padding: 25px 30px 15px 25px;
+  }
+  .right .switch {
+    padding-left: 25px;
+  }
+  .right .sliders label {
+    margin-top: 30px;
+  }
+  .right .sliders .ctrl .label {
+    width: 40px;
+    height: 40px;
+  }
+  input[type=range] {
+    height: calc(100% - 160px);
+  }
 }

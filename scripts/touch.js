@@ -6,7 +6,7 @@ let lastX = 0;
 let lastY = 0;
 let dragging = false;
 
-const imgs = document.querySelector('#imgs');
+var imgs = element.imgs;
 
 function updateTransform() {
   imgs.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;

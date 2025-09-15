@@ -4,6 +4,7 @@ const element = {
   accent: document.getElementById('accent'),
   elCtrl: document.getElementById('element-ctrl'),
   elLabel: document.getElementById('element-label'),
+  imgs: document.getElementById('imgs'),
 };
 
 const input = {
@@ -31,12 +32,6 @@ var filter = {
     sat: 100,
     lgt: 100
   }
-};
-
-var space = {
-  hue: { min: 0, max: 360, step: 10 },
-  sat: { min: -100, max: 100, step: 10 },
-  lgt: { min: -100, max: 100, step: 10 }
 };
 
 function sliderChange(e) {
@@ -73,7 +68,7 @@ function update() {
   updateElement('accent');
 
   element.accent.className = state.accent ? '' : 'hidden';
-  element.elLabel.innerText = state.element == 'door' ? 'Door' : 'Accent';
+  element.elLabel.innerText = state.element == 'door' ? 'Tür' : 'Akzent';
 
   storeQuery();
 }
@@ -108,6 +103,20 @@ function storeQuery() {
   replaceState(null, '', url.toString());
 }
 
+function panImage() {
+  var width = element.imgs.scrollWidth;
+  var height = element.imgs.scrollHeight;
 
-loadQuery();
-update();
+  var overX = width - window.innerWidth;
+  var overY = height - window.innerHeight;
+
+  element.imgs.style.top = `-${overY / 2}px`;
+  element.imgs.style.left = `-${overX / 2}px`;
+}
+
+window.onload = function() {
+  loadQuery();
+  setSliders();
+  update();
+  panImage();
+}
