@@ -5,9 +5,27 @@ html, body {
   font-family: Helvetica, sans-serif;
   background-color: #555;
 }
+
+#imgs {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+img {
+  display: block;
+  position: absolute;
+}
+.zoomable {
+  transform-origin: center center;
+  transition: transform 0.05s ease-out;
+  touch-action: none;
+}
+
 .hidden {
   display: none !important;
 }
+
 .ctrls {
   position: absolute;
   background-color: rgba(85, 85, 85, 0.5);
@@ -37,6 +55,7 @@ label {
 .right .switch .label {
   padding: 3px 0 0 10px;
 }
+
 .right .sliders {
   display: flex;
   flex-wrap: nowrap;
@@ -70,7 +89,7 @@ input[type=range] {
 .top {
   top: 0;
   left: 0;
-  padding: 25px 60px 20px 50px;
+  padding: 25px 30px 20px 25px;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -116,20 +135,37 @@ input[type=checkbox]:checked::after {
   left: 70%;
 }
 
-#imgs {
-  position: relative;
-  margin: auto;
-  width: 100%;
-}
-img {
-  display: block;
+.bottom {
+  display: flex;
   position: absolute;
-  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 25px 30px 20px 25px;
+  white-space: nowrap;
 }
-.zoomable {
-  transform-origin: center center;
-  transition: transform 0.05s ease-out;
-  touch-action: none;
+.bottom input {
+  height: 60px;
+  width: 400px;
+  font-weight: bold;
+  font-size: 20pt;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: #000;
+  color: #ccc;
+  border: none;
+  border-radius: 30px;
+  padding: 5px 30px;
+}
+.bottom .share {
+}
+.bottom .share svg {
+  width: 60px;
+  height: 60px;
+}
+.bottom .share svg path {
+  fill: #ddd;
+  stroke: #ccc;
+  stroke-width: 1.5px;
 }
 
 label {
