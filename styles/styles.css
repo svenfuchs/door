@@ -15,6 +15,7 @@ html, body {
 img {
   display: block;
   position: absolute;
+  width: 100%;
 }
 .zoomable {
   transform-origin: center center;
