@@ -73,12 +73,11 @@ window.addEventListener("load", () => {
   debug = e => {
     console.log(e);
     e.preventDefault();
+    e.stopPropagation();
     return false;
   }
   console.log(sliders);
   sliders.addEventListener("touchstart", debug);
   sliders.addEventListener("touchmove", debug);
   sliders.addEventListener("touchend", debug);
-  sliders.addEventListener("wheel", debug);
-  sliders.addEventListener("change", debug);
 });
