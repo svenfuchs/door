@@ -11,7 +11,6 @@ window.addEventListener("load", () => {
 
   var body = document.body;
   var imgs = document.getElementById('imgs');
-  var sliders = document.querySelector('input[type=range]');
 
   function updateTransform() {
     // imgs.style.transformOrigin = `${origX}% ${origY}%`
@@ -37,6 +36,9 @@ window.addEventListener("load", () => {
   });
 
   body.addEventListener('touchstart', e => {
+    if(e.srcElement.tagName == 'INPUT') {
+      return;
+    }
     e.preventDefault();
     if (e.touches.length === 1) {
       dragging = true;
@@ -47,6 +49,9 @@ window.addEventListener("load", () => {
   });
 
   body.addEventListener('touchmove', e => {
+    if(e.srcElement.tagName == 'INPUT') {
+      return;
+    }
     e.preventDefault();
     if (dragging && e.touches.length === 1) {
       posX = e.touches[0].clientX - lastX;
@@ -57,6 +62,9 @@ window.addEventListener("load", () => {
   });
 
   body.addEventListener('touchend', e => {
+    if(e.srcElement.tagName == 'INPUT') {
+      return;
+    }
     e.preventDefault();
     if (e.touches.length === 0) {
       dragging = false;
@@ -69,15 +77,4 @@ window.addEventListener("load", () => {
     posY -= e.deltaY;
     updateTransform();
   });
-
-  debug = e => {
-    console.log(e);
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
-  }
-  console.log(sliders);
-  sliders.addEventListener("touchstart", debug);
-  sliders.addEventListener("touchmove", debug);
-  sliders.addEventListener("touchend", debug);
 });
