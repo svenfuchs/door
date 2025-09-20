@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
 
   var body = document.body;
   var imgs = document.getElementById('imgs');
+  var sliders = document.querySelector('input[type=range]');
 
   function updateTransform() {
     // imgs.style.transformOrigin = `${origX}% ${origY}%`
@@ -67,5 +68,11 @@ window.addEventListener("load", () => {
     posX -= e.deltaX;
     posY -= e.deltaY;
     updateTransform();
+  });
+
+  sliders.addEventListener("touchmove", e => {
+    console.log(e);
+    e.preventDefault();
+    return false;
   });
 });
