@@ -70,9 +70,13 @@ window.addEventListener("load", () => {
     updateTransform();
   });
 
-  sliders.addEventListener("touchmove", e => {
+  debug = e => {
     console.log(e);
     e.preventDefault();
     return false;
-  });
+  }
+  sliders.addEventListener("touchstart", debug);
+  sliders.addEventListener("touchmove", debug);
+  sliders.addEventListener("touchend", debug);
+  sliders.addEventListener("wheel", debug);
 });
