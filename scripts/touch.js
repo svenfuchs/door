@@ -36,6 +36,9 @@ window.addEventListener("load", () => {
   });
 
   body.addEventListener('touchstart', e => {
+    if(e.srcElement.tagName == 'INPUT') {
+      return;
+    }
     e.preventDefault();
     if (e.touches.length === 1) {
       dragging = true;
@@ -46,6 +49,9 @@ window.addEventListener("load", () => {
   });
 
   body.addEventListener('touchmove', e => {
+    if(e.srcElement.tagName == 'INPUT') {
+      return;
+    }
     e.preventDefault();
     if (dragging && e.touches.length === 1) {
       posX = e.touches[0].clientX - lastX;
@@ -56,6 +62,9 @@ window.addEventListener("load", () => {
   });
 
   body.addEventListener('touchend', e => {
+    if(e.srcElement.tagName == 'INPUT') {
+      return;
+    }
     e.preventDefault();
     if (e.touches.length === 0) {
       dragging = false;

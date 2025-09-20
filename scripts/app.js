@@ -146,17 +146,9 @@ function loadCode() {
 }
 
 function initImage() {
-  var width = element.imgs.scrollWidth;
-  var height = element.imgs.scrollHeight;
-
-  var overX = width - window.innerWidth;
-  var overY = height - window.innerHeight;
-
-  element.imgs.style.top = `-${overY / 2}px`;
-  element.imgs.style.left = `-${overX / 2}px`;
-
-  if(width < window.innerWidth) {
-  }
+  var x = (element.imgs.scrollWidth - window.innerWidth) / 2;
+  var y = (element.imgs.scrollHeight - window.innerHeight) / 2;
+  element.imgs.style.transform = `translate(-${x}px, -${y}px)`
 }
 
 window.addEventListener("load", () => {
